@@ -10,7 +10,7 @@ python RobustCNN.py --scale [2 or 4] --filter [blockaverage,bluring,medianBlur,b
 
 Note that the CNNs are trained on ImageNet dataset. We selected 1000 of images randomly. If you want to select other set of random images in the code, download ImageNet data set and then uncomment Selecting_Candidate_Images() function first. Also you need to provide the address of ImageNet directory (e.g., --imagenet_dir ./data/Imagenet).
 
-
+1. Download ImageNet Linf-norm eps=4 (ResNet50) and ImageNet L2-norm (ResNet50) eps=3 from [robustness github](https://github.com/MadryLab/robustness) and put them in models folder
 
 We downloaded robust CNNs from [robustness github](https://github.com/MadryLab/robustness) ( Check Robustness package here: @misc{robustness,
    title={Robustness (Python Library)},
