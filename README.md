@@ -12,12 +12,10 @@ Note that the CNNs are trained on ImageNet dataset. We selected 1000 of images r
 
 
 
-We downloaded robust CNNs from [robustness github](https://github.com/MadryLab/robustness)
-
-@misc{robustness,
+We downloaded robust CNNs from [robustness github](https://github.com/MadryLab/robustness) ( Check Robustness package here: @misc{robustness,
    title={Robustness (Python Library)},
    author={Logan Engstrom and Andrew Ilyas and Shibani Santurkar and Dimitris Tsipras},
    year={2019},
    url={https://github.com/MadryLab/robustness}
-}
+})
 
