@@ -8,7 +8,9 @@ To test the pipeline of robust CNN classifiers and SRCNNs, run RobustCNN.py as f
 
 python RobustCNN.py --scale [2 or 4] --filter [blockaverage,bluring,medianBlur,bilateralFilter,None]
 
-Note that the CNNs are trained on ImageNet dataset. We selected 1000 of images randomly. If you want to select other set of random images in the code, run Selecting_Candidate_Images function first.
+Note that the CNNs are trained on ImageNet dataset. We selected 1000 of images randomly. If you want to select other set of random images in the code, download ImageNet data set and then uncomment Selecting_Candidate_Images() function first. Also you need to provide the address of ImageNet directory (e.g., --imagenet_dir ./data/Imagenet).
+
+
 
 We downloaded robust CNNs from [robustness github](https://github.com/MadryLab/robustness)
 
