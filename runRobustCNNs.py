@@ -13,8 +13,7 @@ import numpy as np
 import torchvision
 from torchvision import transforms
 import math
-import cv2
-import imageio
+
 
 
 #clean imagenet scale =4 array([0.92795657, 0.18377384, 0.4427025 ])
@@ -24,7 +23,7 @@ parser = argparse.ArgumentParser(description='Content Adaptive Resampler for Ima
 parser.add_argument('--model_dir', type=str, default='./models', help='path to the pre-trained model')
 parser.add_argument('--scale', type=int,default=2,  help='downscale factor')
 parser.add_argument('--output_dir', type=str, default='./results',  help='path to store results')
-parser.add_argument('--imagenet_dir', type=str, default='../imagenet/ImageNet',  help='path to ImageNet Dataset')
+parser.add_argument('--imagenet_dir', type=str, default='None',  help='path to ImageNet Dataset')
 parser.add_argument('--filter', type=str, default='None',  help='[ blockaverage,bluring,medianBlur,bilateralFilter,None]')
 
 
@@ -121,7 +120,8 @@ def Create_and_Test_Adversarial_Examples(eps=6, step_size=0.5, itrs=500,Local_CN
     target_model.eval()
 
     #Loading candidate images
-    filehandler = open("CandidateImageForRobustCNN_scale"+str(args.scale)+".pt","rb")
+    Saved_Path=os.path.join(args.output_dir, "CandidateImageForRobustCNN_scale"+str(scale)+".pt")
+    filehandler = open(Saved_Path,"rb")
     data=pickle.load(filehandler)
 
     #attacks parameters
@@ -185,11 +185,9 @@ def Create_and_Test_Adversarial_Examples(eps=6, step_size=0.5, itrs=500,Local_CN
             pert_target=pert_target+psnr_res
 
 
-        if save_image:
-            c= i
-            #int(np.floor(i/100)+1)
+        if save_image and i%100==0:
+            c= int(np.floor(i/100)+1) 
             
-
             img_path=os.path.join(args.output_dir,"Original_Adversarial_image_"+str(c) +".png")
             img=tran_pil(adv_im[0])
             img.save(img_path)
@@ -217,34 +215,12 @@ def Create_and_Test_Adversarial_Examples(eps=6, step_size=0.5, itrs=500,Local_CN
     print("Fooling Rate of target CNN is %.4f and the average perturbation needed is %.4f (PSNR)"%(total_target/float(len(data['y'])), pert_target/float(len(data['y']))) )  
         
 
-def test_img():
-    import cv2
-    transform = transforms.Compose([transforms.CenterCrop(224),transforms.ToTensor()]) #,transforms.RandomResizedCrop(224)
-    imagenet_data = torchvision.datasets.ImageNet(args.imagenet_dir,split='val', transform=transform)
-    data_loader = torch.utils.data.DataLoader(imagenet_data,batch_size=1,shuffle=True )
-    tran1 = transforms.ToPILImage()
-    print('data is Loaded')
-    for i,(input_x, target) in enumerate(data_loader):
-        
-        X=tran1 (input_x[0])
-        mg_path2=os.path.join(args.output_dir,"geeks.jpg")
-        X.save(mg_path2)
-        # X= X.cpu().numpy()
-        # print(X.shape,np.max(X))
-        # img_path=os.path.join(args.output_dir,"test_4.png")
-        # img_path2=os.path.join(args.output_dir,"test_3.png")
-        # img=np.reshape(X,(224,224,3))
-        # print(img.shape, np.max(img))
-        # # if np.max(img)>2:
-        # cv2.imwrite(img_path, np.reshape(img,(224,224,3)))
-        # img=(img*255).astype(np.uint8)
-        # cv2.imwrite(img_path2, np.reshape(img,(224,224,3)))
-        
-        break   
+
 if __name__ == '__main__':
     
     args = parser.parse_args()
-    # test_img()
+    if args.imagenet_dir!= 'None'
+        Selecting_Candidate_Images()
 
     KSIZE = 3 * args.scale + 1
     OFFSET_UNIT = args.scale
