@@ -13,7 +13,7 @@ Requirement: PyTorch, CUDA, robustness
 
 You can download all required pre-trained networks and sampled data from [here](https://drive.google.com/drive/folders/1u-oD2kJDnnzOPhQSkfJJ1iKsEIRjt8VO?usp=sharing). To test the pipeline of robust CNN classifiers and SRCNNs, run RobustCNN.py as follows:
 
-python RobustCNN.py --scale [2 or 4] --filter [blockaverage,bluring,medianBlur,bilateralFilter,None]
+python runRobustCNNs.py [--scale 2 or 4] [--filter blockaverage,bluring,medianBlur,bilateralFilter,None] [ --imagenet_dir ./data/Imagenet]
 
 We downloaded robust CNNs from [robustness github](https://github.com/MadryLab/robustness) ( Check Robustness package here: @misc{robustness,
    title={Robustness (Python Library)},
