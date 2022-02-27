@@ -1,11 +1,10 @@
 # Adversarial-Images-Against-Super-Resolution-Convolutional-Neural-Networks-SRCNNs-for-Free
-PETS 2022: Adversarial Images Against Super-Resolution Convolutional Neural Networks (SRCNNs) for Free
+This repository is for our paper "Adversarial Images Against Super-Resolution Convolutional Neural Networks (SRCNNs) for Free" which was published in PETS 2022.
 
 
 Requirement: PyTorch, CUDA, robustness
 
-
- 
+**Steps befor running the codes:**
 
 1. Download ImageNet Linf-norm eps=4 (ResNet50) and ImageNet L2-norm (ResNet50) eps=3 from [robustness github](https://github.com/MadryLab/robustness) and put them in models folder
 2. Download CAR x2 and CAR  x4 pretrained-models [from CAR github](https://github.com/sunwj/CAR). Rename them to CARx2.pt and CARx4.pt and move them to ./models folder.
@@ -19,8 +18,11 @@ python runRobustCNNs.py [--scale 2 or 4] [--filter blockaverage,bluring,medianBl
 
 We downloaded robust CNNs from [robustness github](https://github.com/MadryLab/robustness) ( Check Robustness package here: @misc{robustness,
    title={Robustness (Python Library)},
+   
    author={Logan Engstrom and Andrew Ilyas and Shibani Santurkar and Dimitris Tsipras},
+   
    year={2019},
+   
    url={https://github.com/MadryLab/robustness}
 })
 
