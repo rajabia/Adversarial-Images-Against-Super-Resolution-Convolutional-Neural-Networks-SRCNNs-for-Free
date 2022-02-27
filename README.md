@@ -12,7 +12,7 @@ Requirement: PyTorch, CUDA, robustness
 
 5. For running robust CNN, note that the CNNs are trained on ImageNet dataset. We selected 1000 of images randomly. If you want to select other set of random images in the code, download ImageNet data set and  provide the address of ImageNet directory (e.g., --imagenet_dir ./data/Imagenet). 
 
-You can download all required pre-trained networks (robust models and CARs model ) and sampled data from [here](https://drive.google.com/drive/folders/1u-oD2kJDnnzOPhQSkfJJ1iKsEIRjt8VO?usp=sharing). To test the pipeline of robust CNN classifiers and SRCNNs, run RobustCNN.py as follows:
+You can download all required pre-trained networks (robust models and CARs model ) and sampled data from [here](https://drive.google.com/drive/folders/1u-oD2kJDnnzOPhQSkfJJ1iKsEIRjt8VO?usp=sharing). To test the pipeline of a robust CNN classifier and CAR SRCNN, run RobustCNN.py as following:
 
 > python runRobustCNNs.py [--scale 2 or 4] [--filter blockaverage,bluring,medianBlur,bilateralFilter,None] [ --imagenet_dir ./data/Imagenet]
 
