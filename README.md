@@ -14,21 +14,19 @@ Requirement: PyTorch, CUDA, robustness
 
 You can download all required pre-trained networks (robust models and CARs model ) and sampled data from [here](https://drive.google.com/drive/folders/1u-oD2kJDnnzOPhQSkfJJ1iKsEIRjt8VO?usp=sharing). To test the pipeline of robust CNN classifiers and SRCNNs, run RobustCNN.py as follows:
 
-python runRobustCNNs.py [--scale 2 or 4] [--filter blockaverage,bluring,medianBlur,bilateralFilter,None] [ --imagenet_dir ./data/Imagenet]
+> python runRobustCNNs.py [--scale 2 or 4] [--filter blockaverage,bluring,medianBlur,bilateralFilter,None] [ --imagenet_dir ./data/Imagenet]
 
-We downloaded robust CNNs from [robustness github](https://github.com/MadryLab/robustness) ( Check Robustness package here: @misc{robustness,
-   title={Robustness (Python Library)},
-   
-   author={Logan Engstrom and Andrew Ilyas and Shibani Santurkar and Dimitris Tsipras},
-   
-   year={2019},
-   
-   url={https://github.com/MadryLab/robustness}
+We downloaded robust CNNs from [robustness github](https://github.com/MadryLab/robustness) ( Check Robustness package here:\
+@misc{robustness,\
+   title={Robustness (Python Library)},\
+   author={Logan Engstrom and Andrew Ilyas and Shibani Santurkar and Dimitris Tsipras},\
+   year={2019},\
+   url={https://github.com/MadryLab/robustness}\
 })
 
 **To run CAR and RCAN models:**
 
-python run_CAR.py --img_dir foldersofimages [--resize True/False] [--scale 2,4]
+> python run_CAR.py --img_dir foldersofimages [--resize True/False] [--scale 2,4]
 
 Note, if your images are LR images then --resize should be false otherwise we create a LR images from it
  
