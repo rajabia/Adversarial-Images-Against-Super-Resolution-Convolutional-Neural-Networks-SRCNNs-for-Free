@@ -7,7 +7,7 @@ Requirement: PyTorch, CUDA, robustness
 **Steps befor running the codes:**
 
 1. Download ImageNet Linf-norm eps=4 (ResNet50) and ImageNet L2-norm (ResNet50) eps=3 from [robustness github](https://github.com/MadryLab/robustness) and put them in models folder
-2. Download CAR x2 and CAR x4 pretrained-models [from CAR github](https://github.com/sunwj/CAR). Rename them to CAR*x2.pt and CAR*x4.pt and move them to ./models folder.
+2. Download CAR x2 and CAR x4 pretrained-models [from CAR github](https://github.com/sunwj/CAR). Rename them to CAR_x2.pt and CAR_x4.pt and move them to ./models folder.
 3. Download RCAN models from [RCAN's official github](https://github.com/yulunzhang/RCAN) and put them in models directory
 
 5. For running robust CNN, note that the CNNs are trained on ImageNet dataset. We selected 1000 of images randomly. If you want to select other set of random images in the code, download ImageNet data set and  provide the address of ImageNet directory (e.g., --imagenet_dir ./data/Imagenet). 
