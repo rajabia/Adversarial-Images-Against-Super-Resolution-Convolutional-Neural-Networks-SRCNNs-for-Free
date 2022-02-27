@@ -4,7 +4,7 @@ import os, argparse
 
 import torch
 import torch.nn as nn
-from EDSR.edsr import EDSR
+from model.edsr import EDSR
 from modules import DSN
 from robustness.datasets import ImageNet
 from robustness.model_utils import make_and_restore_model
@@ -15,9 +15,6 @@ from torchvision import transforms
 import math
 
 
-
-#clean imagenet scale =4 array([0.92795657, 0.18377384, 0.4427025 ])
-#clean imagenet scale =2 array([1.09009729, 0.20507661, 0.40530078])
 
 parser = argparse.ArgumentParser(description='Content Adaptive Resampler for Image downscaling')
 parser.add_argument('--model_dir', type=str, default='./models', help='path to the pre-trained model')
