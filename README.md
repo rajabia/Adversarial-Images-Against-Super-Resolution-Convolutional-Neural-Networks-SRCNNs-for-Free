@@ -24,7 +24,9 @@ We downloaded robust CNNs from [robustness github](https://github.com/MadryLab/r
    url={https://github.com/MadryLab/robustness}
 })
 
-**To run CAR and RCAN models:
-Note, if your images are LR images then --resize should be false otherwise we create a LR images from it
+**To run CAR and RCAN models:**
+
 python run_CAR.py --img_dir foldersofimages [--resize True/False] [--scale 2,4]
+
+Note, if your images are LR images then --resize should be false otherwise we create a LR images from it
  
